@@ -505,99 +505,395 @@
         display: none;
       }
 
-      .account-grid {
+      .account-intro {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      .account-intro p {
+        max-width: 690px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.75;
+      }
+
+      .account-intro span {
+        flex: 0 0 auto;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .phone-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: start;
         gap: 14px;
       }
 
-      .account-card {
-        min-height: 400px;
-        padding: 30px;
-        border-radius: 26px;
-        background: #fff;
+      .phone-shell {
+        --phone-accent: #0071e3;
+        --phone-tint: #eaf4ff;
+        position: relative;
+        width: 100%;
+        max-width: 282px;
+        margin-inline: auto;
+        padding: 9px;
+        border-radius: 43px;
+        background: #101012;
+        box-shadow:
+          0 30px 70px rgba(0, 0, 0, 0.14),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.14);
       }
 
-      .account-card.featured {
-        grid-column: span 2;
-        min-height: 360px;
+      .phone-shell::before {
+        position: absolute;
+        z-index: 3;
+        top: 16px;
+        left: 50%;
+        width: 84px;
+        height: 22px;
+        border-radius: 999px;
+        background: #101012;
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .phone-shell::after {
+        position: absolute;
+        top: 116px;
+        right: -3px;
+        width: 3px;
+        height: 66px;
+        border-radius: 0 4px 4px 0;
+        background: #252529;
+        content: "";
+      }
+
+      .phone-screen {
+        position: relative;
+        display: flex;
+        aspect-ratio: 9 / 18.9;
+        overflow: hidden;
+        padding: 42px 13px 13px;
+        border-radius: 35px;
+        background:
+          radial-gradient(circle at 78% 3%, var(--phone-tint), transparent 30%),
+          #fff;
+        flex-direction: column;
+      }
+
+      .phone-status {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        left: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #171719;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .phone-status span:last-child {
+        letter-spacing: 0.13em;
+      }
+
+      .phone-profile {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+        padding-top: 5px;
+      }
+
+      .phone-avatar {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--phone-accent);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 800;
+        place-items: center;
+        box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.38);
+      }
+
+      .phone-account-link {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 5px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+
+      .phone-account-link span:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .phone-account-link::after {
+        display: grid;
+        width: 14px;
+        height: 14px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: var(--phone-accent);
+        color: #fff;
+        content: "✓";
+        font-size: 8px;
+        place-items: center;
+      }
+
+      .phone-profile p {
+        overflow: hidden;
+        margin: 4px 0 0;
+        color: #8a8a91;
+        font-size: 8px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .phone-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+        margin-top: 14px;
+        padding: 10px 0;
+        border-top: 1px solid #ededf0;
+        border-bottom: 1px solid #ededf0;
+        text-align: center;
+      }
+
+      .phone-stat strong {
+        display: block;
+        color: #161618;
+        font-size: 13px;
+        letter-spacing: -0.03em;
+      }
+
+      .phone-stat span {
+        display: block;
+        margin-top: 2px;
+        color: #99999f;
+        font-size: 7px;
+      }
+
+      .phone-section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 13px;
+        color: #6d6d73;
+        font-size: 8px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .phone-section-title span:last-child {
+        color: var(--phone-accent);
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .phone-video-list {
+        display: grid;
+        gap: 7px;
+        margin-top: 8px;
+      }
+
+      .phone-video {
+        display: grid;
+        min-height: 56px;
+        grid-template-columns: 48px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 8px 6px 6px;
+        border: 1px solid transparent;
+        border-radius: 14px;
+        background: #f6f6f8;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          background-color 160ms ease;
+      }
+
+      .phone-video:hover,
+      .phone-video:focus-visible {
+        border-color: color-mix(in srgb, var(--phone-accent) 38%, transparent);
+        background: var(--phone-tint);
+        transform: translateY(-1px);
+      }
+
+      .phone-video-thumb {
+        position: relative;
+        display: grid;
+        width: 48px;
+        height: 44px;
+        overflow: hidden;
+        border-radius: 10px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.14), transparent),
+          var(--phone-accent);
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+        line-height: 1.15;
+        text-align: center;
+        place-items: center;
+      }
+
+      .phone-video-thumb::after {
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        display: grid;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.62);
+        content: "▶";
+        font-size: 6px;
+        place-items: center;
+      }
+
+      .phone-video-copy {
+        min-width: 0;
+      }
+
+      .phone-video-copy strong {
+        display: -webkit-box;
+        overflow: hidden;
+        color: #1d1d1f;
+        font-size: 9px;
+        line-height: 1.35;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .phone-video-copy span {
+        display: block;
+        overflow: hidden;
+        margin-top: 3px;
+        color: #8b8b91;
+        font-size: 7px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .phone-video-arrow {
+        color: var(--phone-accent);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .phone-account-button {
+        display: flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: auto;
+        padding: 0 13px;
+        border-radius: 999px;
+        background: #111;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+      }
+
+      .phone-account-button span:last-child {
+        color: color-mix(in srgb, var(--phone-accent) 72%, white);
+        font-size: 12px;
+      }
+
+      .account-link-note {
+        margin: 20px 0 0;
+        color: #8a8a90;
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      .cross-field {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+        gap: 30px;
+        margin-top: 14px;
+        padding: 28px;
+        border-radius: 26px;
         background: #111;
         color: #fff;
       }
 
-      .account-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .account-label {
-        color: var(--blue);
-        font-size: 11px;
+      .cross-field-label {
+        color: #64aaff;
+        font-size: 10px;
         font-weight: 800;
-        letter-spacing: 0.13em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
-      .featured .account-label {
-        color: #64aaff;
-      }
-
-      .account-period {
-        color: var(--muted);
-        font-size: 11px;
-        font-weight: 700;
-      }
-
-      .featured .account-period {
-        color: rgba(255, 255, 255, 0.45);
-      }
-
-      .account-metric {
-        display: block;
-        margin-top: 55px;
-        font-size: clamp(54px, 7vw, 86px);
-        font-weight: 740;
-        letter-spacing: -0.07em;
-        line-height: 0.9;
-      }
-
-      .account-card h3 {
+      .cross-field h3 {
         margin: 24px 0 0;
         font-size: 27px;
         letter-spacing: -0.045em;
       }
 
-      .account-card p {
-        margin: 15px 0 0;
-        color: var(--muted);
-        line-height: 1.8;
+      .cross-field p {
+        margin: 10px 0 0;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 12px;
+        line-height: 1.7;
       }
 
-      .featured p {
-        max-width: 790px;
-        color: rgba(255, 255, 255, 0.58);
-      }
-
-      .account-result {
-        display: flex;
-        flex-wrap: wrap;
+      .cross-field-links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-        margin-top: 28px;
       }
 
-      .account-result span {
-        padding: 8px 11px;
-        border-radius: 999px;
-        background: var(--soft);
-        font-size: 11px;
-        font-weight: 720;
+      .cross-field-links a {
+        display: flex;
+        min-height: 112px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.07);
+        flex-direction: column;
+        justify-content: space-between;
+        transition:
+          transform 160ms ease,
+          background-color 160ms ease;
       }
 
-      .featured .account-result span {
-        background: rgba(255, 255, 255, 0.11);
-        color: rgba(255, 255, 255, 0.77);
+      .cross-field-links a:hover,
+      .cross-field-links a:focus-visible {
+        background: rgba(255, 255, 255, 0.13);
+        transform: translateY(-2px);
+      }
+
+      .cross-field-links span {
+        color: #64aaff;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .cross-field-links strong {
+        font-size: 13px;
+        line-height: 1.45;
       }
 
       .doc-grid {
@@ -844,6 +1140,15 @@
         .large-works {
           grid-template-columns: repeat(2, 1fr);
         }
+
+        .phone-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 28px 14px;
+        }
+
+        .cross-field {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 680px) {
@@ -886,7 +1191,6 @@
         }
 
         .strength-grid,
-        .account-grid,
         .doc-grid,
         .video-grid,
         .large-works,
@@ -894,8 +1198,35 @@
           grid-template-columns: 1fr;
         }
 
-        .account-card.featured {
-          grid-column: auto;
+        .account-intro {
+          align-items: flex-start;
+          flex-direction: column-reverse;
+        }
+
+        .phone-grid {
+          width: calc(100vw - 14px);
+          grid-template-columns: none;
+          grid-auto-columns: minmax(272px, 82vw);
+          grid-auto-flow: column;
+          gap: 14px;
+          overflow-x: auto;
+          margin-right: calc(50% - 50vw);
+          padding: 2px calc(50vw - 50%) 30px 0;
+          scroll-padding-left: 0;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+        }
+
+        .phone-grid::-webkit-scrollbar {
+          display: none;
+        }
+
+        .phone-shell {
+          scroll-snap-align: start;
+        }
+
+        .cross-field-links {
+          grid-template-columns: 1fr;
         }
 
         .proof-bar {
@@ -1145,43 +1476,178 @@
             </div>
 
             <div class="project-group" data-project-content="accounts">
-              <div class="account-grid">
-                <article class="account-card featured">
-                  <div class="account-top"><span class="account-label">Account incubation · 01</span><span class="account-period">2024—2026</span></div>
-                  <strong class="account-metric">25.9万</strong>
-                  <h3>生殖中心龙梅医生</h3>
-                  <p>参与定位、选题、脚本、医生沟通、拍摄、剪辑与数据复盘。账号发布早期即出现爆款，5个月达到10万粉丝。</p>
-                  <div class="account-result"><span>0→1孵化</span><span>5个月10万粉</span><span>医学动画</span><span>热点转化</span></div>
+              <div class="account-intro">
+                <p>点击账号名或底部按钮可进入抖音官方搜索；点击手机内的视频卡片，可按账号名与作品标题查看对应内容。</p>
+                <span>Swipe to explore · 4 accounts</span>
+              </div>
+
+              <div class="phone-grid">
+                <article class="phone-shell" style="--phone-accent:#996755;--phone-tint:#f6efeb">
+                  <div class="phone-screen">
+                    <div class="phone-status" aria-hidden="true"><span>9:41</span><span>●●● 5G ▰</span></div>
+                    <div class="phone-profile">
+                      <div class="phone-avatar">龙</div>
+                      <div>
+                        <a class="phone-account-link" href="https://www.douyin.com/search/Dr.LongMei?type=user" target="_blank" rel="noreferrer" aria-label="在抖音搜索生殖中心龙梅医生">
+                          <span>生殖中心龙梅医生</span>
+                        </a>
+                        <p>抖音号 · Dr.LongMei</p>
+                      </div>
+                    </div>
+                    <div class="phone-stats">
+                      <div class="phone-stat"><strong>25.9万</strong><span>粉丝</span></div>
+                      <div class="phone-stat"><strong>5个月</strong><span>达到10万粉</span></div>
+                      <div class="phone-stat"><strong>377</strong><span>作品</span></div>
+                    </div>
+                    <div class="phone-section-title"><span>代表视频</span><span>点击查看 ↗</span></div>
+                    <div class="phone-video-list">
+                      <a class="phone-video" href="https://www.douyin.com/search/生殖中心龙梅医生%20顺产下面一定要剪一刀吗?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">顺产<br>侧切</span>
+                        <span class="phone-video-copy"><strong>顺产下面一定要剪一刀吗？</strong><span>713.6万播放 · 科普口播</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/生殖中心龙梅医生%20IUI取精室里面长什么样?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">IUI<br>实拍</span>
+                        <span class="phone-video-copy"><strong>IUI取精室里面长什么样？</strong><span>638.6万播放 · 场景讲解</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                    </div>
+                    <a class="phone-account-button" href="https://www.douyin.com/search/Dr.LongMei?type=user" target="_blank" rel="noreferrer"><span>打开抖音账号</span><span>↗</span></a>
+                  </div>
                 </article>
-                <article class="account-card">
-                  <div class="account-top"><span class="account-label">Account · 02</span><span class="account-period">2024—2026</span></div>
-                  <strong class="account-metric">9.2万</strong>
-                  <h3>妇科陈华医生</h3>
-                  <p>围绕女性健康高频问题持续测试选题、开头与表达形式，3个月达到5万粉丝。</p>
-                  <div class="account-result"><span>3个月5万粉</span><span>全链路执行</span></div>
+
+                <article class="phone-shell" style="--phone-accent:#8a65ad;--phone-tint:#f3eef9">
+                  <div class="phone-screen">
+                    <div class="phone-status" aria-hidden="true"><span>9:41</span><span>●●● 5G ▰</span></div>
+                    <div class="phone-profile">
+                      <div class="phone-avatar">陈</div>
+                      <div>
+                        <a class="phone-account-link" href="https://www.douyin.com/search/1003381704?type=user" target="_blank" rel="noreferrer" aria-label="在抖音搜索妇科陈华医生">
+                          <span>妇科陈华医生</span>
+                        </a>
+                        <p>抖音号 · 1003381704</p>
+                      </div>
+                    </div>
+                    <div class="phone-stats">
+                      <div class="phone-stat"><strong>9.2万</strong><span>粉丝</span></div>
+                      <div class="phone-stat"><strong>3个月</strong><span>达到5万粉</span></div>
+                      <div class="phone-stat"><strong>459</strong><span>作品</span></div>
+                    </div>
+                    <div class="phone-section-title"><span>代表视频</span><span>点击查看 ↗</span></div>
+                    <div class="phone-video-list">
+                      <a class="phone-video" href="https://www.douyin.com/search/妇科陈华医生%20如何正确佩戴避孕套?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">两性<br>科普</span>
+                        <span class="phone-video-copy"><strong>如何正确佩戴避孕套？</strong><span>1592.7万播放 · 实物演示</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/妇科陈华医生%20女孩子多大来月经?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">月经<br>初潮</span>
+                        <span class="phone-video-copy"><strong>女孩子多大来月经？</strong><span>832.2万播放 · 高频问题</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/妇科陈华医生%20女性健康常识?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">女性<br>健康</span>
+                        <span class="phone-video-copy"><strong>女性健康高频误区</strong><span>代表内容 · 系列化选题</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                    </div>
+                    <a class="phone-account-button" href="https://www.douyin.com/search/1003381704?type=user" target="_blank" rel="noreferrer"><span>打开抖音账号</span><span>↗</span></a>
+                  </div>
                 </article>
-                <article class="account-card">
-                  <div class="account-top"><span class="account-label">Account · 03</span><span class="account-period">2022—2024</span></div>
-                  <strong class="account-metric">20万+</strong>
-                  <h3>中医妇科王雪医生</h3>
-                  <p>从单一账号扩展至图文、短视频和医生助手号内容矩阵，并持续承接用户咨询。</p>
-                  <div class="account-result"><span>矩阵运营</span><span>评论选题</span><span>用户承接</span></div>
+
+                <article class="phone-shell" style="--phone-accent:#2478a7;--phone-tint:#eaf5fa">
+                  <div class="phone-screen">
+                    <div class="phone-status" aria-hidden="true"><span>9:41</span><span>●●● 5G ▰</span></div>
+                    <div class="phone-profile">
+                      <div class="phone-avatar">王</div>
+                      <div>
+                        <a class="phone-account-link" href="https://www.douyin.com/search/29328286720?type=user" target="_blank" rel="noreferrer" aria-label="在抖音搜索中医妇科王雪">
+                          <span>中医妇科王雪</span>
+                        </a>
+                        <p>抖音号 · 29328286720</p>
+                      </div>
+                    </div>
+                    <div class="phone-stats">
+                      <div class="phone-stat"><strong>20万+</strong><span>粉丝</span></div>
+                      <div class="phone-stat"><strong>矩阵化</strong><span>运营方式</span></div>
+                      <div class="phone-stat"><strong>530</strong><span>作品</span></div>
+                    </div>
+                    <div class="phone-section-title"><span>代表内容</span><span>点击查看 ↗</span></div>
+                    <div class="phone-video-list">
+                      <a class="phone-video" href="https://www.douyin.com/search/中医妇科王雪%20月经问题?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">月经<br>问题</span>
+                        <span class="phone-video-copy"><strong>月经问题系列</strong><span>用户痛点 · 评论区选题</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/中医妇科王雪%20同房出血?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">妇科<br>问答</span>
+                        <span class="phone-video-copy"><strong>同房出血需要注意什么？</strong><span>高频咨询 · 问题拆解</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/中医妇科王雪%20备孕调理?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">备孕<br>调理</span>
+                        <span class="phone-video-copy"><strong>备孕与日常调理</strong><span>连续内容 · 矩阵分发</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                    </div>
+                    <a class="phone-account-button" href="https://www.douyin.com/search/29328286720?type=user" target="_blank" rel="noreferrer"><span>打开抖音账号</span><span>↗</span></a>
+                  </div>
                 </article>
-                <article class="account-card">
-                  <div class="account-top"><span class="account-label">Account · 04</span><span class="account-period">2023—2024</span></div>
-                  <strong class="account-metric">5万+</strong>
-                  <h3>免疫保胎任天丽医生</h3>
-                  <p>将高专业门槛信息拆解成用户可理解的连续选题，积累焦虑型用户沟通经验。</p>
-                  <div class="account-result"><span>知识转化</span><span>细分垂类</span><span>全流程运营</span></div>
-                </article>
-                <article class="account-card">
-                  <div class="account-top"><span class="account-label">Beyond medical</span><span class="account-period">2022</span></div>
-                  <strong class="account-metric">+500%</strong>
-                  <h3>知识产权与法律账号</h3>
-                  <p>围绕商标、著作权、工程欠款和彩礼等议题完成选题、口播脚本与视频制作。</p>
-                  <div class="account-result"><span>行业热点</span><span>法律口播</span><span>播放提升</span></div>
+
+                <article class="phone-shell" style="--phone-accent:#a47a32;--phone-tint:#faf4e7">
+                  <div class="phone-screen">
+                    <div class="phone-status" aria-hidden="true"><span>9:41</span><span>●●● 5G ▰</span></div>
+                    <div class="phone-profile">
+                      <div class="phone-avatar">任</div>
+                      <div>
+                        <a class="phone-account-link" href="https://www.douyin.com/search/rtlys2023?type=user" target="_blank" rel="noreferrer" aria-label="在抖音搜索免疫保胎任天丽">
+                          <span>免疫保胎任天丽</span>
+                        </a>
+                        <p>抖音号 · rtlys2023</p>
+                      </div>
+                    </div>
+                    <div class="phone-stats">
+                      <div class="phone-stat"><strong>5万+</strong><span>粉丝</span></div>
+                      <div class="phone-stat"><strong>细分垂类</strong><span>账号定位</span></div>
+                      <div class="phone-stat"><strong>446</strong><span>作品</span></div>
+                    </div>
+                    <div class="phone-section-title"><span>代表内容</span><span>点击查看 ↗</span></div>
+                    <div class="phone-video-list">
+                      <a class="phone-video" href="https://www.douyin.com/search/免疫保胎任天丽%20复发性流产?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">复发性<br>流产</span>
+                        <span class="phone-video-copy"><strong>复发性流产系列</strong><span>细分疾病 · 专业转译</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/免疫保胎任天丽%20免疫保胎检查?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">检查<br>解读</span>
+                        <span class="phone-video-copy"><strong>免疫保胎检查怎么看？</strong><span>检查单 · 信息拆解</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                      <a class="phone-video" href="https://www.douyin.com/search/免疫保胎任天丽%20胚胎停育?type=video" target="_blank" rel="noreferrer">
+                        <span class="phone-video-thumb">胎停<br>问答</span>
+                        <span class="phone-video-copy"><strong>胚胎停育常见问题</strong><span>用户焦虑 · 沟通表达</span></span>
+                        <span class="phone-video-arrow">↗</span>
+                      </a>
+                    </div>
+                    <a class="phone-account-button" href="https://www.douyin.com/search/rtlys2023?type=user" target="_blank" rel="noreferrer"><span>打开抖音账号</span><span>↗</span></a>
+                  </div>
                 </article>
               </div>
+
+              <p class="account-link-note">说明：原作品集保留的是抖音号而非分享地址，因此这里使用抖音官方的账号／作品精确搜索入口；后续提供主页或单条视频分享链接后，可以无缝替换成直达页。</p>
+
+              <article class="cross-field">
+                <div>
+                  <span class="cross-field-label">Beyond medical · 跨领域验证</span>
+                  <h3>知识产权与法律账号</h3>
+                  <p>围绕商标、著作权、工程欠款和彩礼等议题完成选题、口播脚本与视频制作，阶段播放提升约 500%。</p>
+                </div>
+                <div class="cross-field-links">
+                  <a href="./trademark.mp4" target="_blank"><span>VIDEO 01 ↗</span><strong>商标注册常见误区</strong></a>
+                  <a href="./copyright.mp4" target="_blank"><span>VIDEO 02 ↗</span><strong>著作权保护怎么做</strong></a>
+                  <a href="./bride-price.mp4" target="_blank"><span>VIDEO 03 ↗</span><strong>彩礼返还的判断逻辑</strong></a>
+                </div>
+              </article>
             </div>
 
             <div class="project-group" data-project-content="copy" hidden>
