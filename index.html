@@ -2,33 +2,33 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="李晓聪的品牌内容运营、短视频账号孵化与视频策划作品集。4年+内容经验，累计内容播放3亿+。"
-    />
-    <meta
-      name="keywords"
-      content="李晓聪,内容运营,品牌内容策划,短视频运营,抖音账号孵化,视频策划"
+      content="李晓聪的内容运营、账号孵化、视频制作与文案策划作品集。4年+经验，累计内容播放3亿+。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:title" content="李晓聪｜品牌内容运营作品集" />
+    <meta property="og:title" content="李晓聪｜内容运营作品集" />
     <meta
       property="og:description"
-      content="把复杂内容，变成用户愿意看、愿意懂、愿意传播的内容。"
+      content="从用户洞察到内容结果：账号、文案与视频项目精选。"
     />
-    <meta property="og:image" content="./og-minimal.png" />
-    <title>李晓聪｜品牌内容运营作品集</title>
+    <meta
+      property="og:image"
+      content="https://lxingzhou95-ui.github.io/lxz/og-v2.png"
+    />
+    <title>李晓聪｜内容运营作品集</title>
     <style>
       :root {
         --ink: #1d1d1f;
         --muted: #6e6e73;
         --paper: #fff;
-        --card: #f5f5f7;
+        --soft: #f5f5f7;
         --line: rgba(0, 0, 0, 0.11);
         --blue: #0071e3;
-        --blue-light: #2997ff;
+        --blue-dark: #0066cc;
         --radius: 28px;
       }
 
@@ -65,16 +65,18 @@
         font: inherit;
       }
 
+      img,
+      video {
+        display: block;
+        max-width: 100%;
+      }
+
       .shell {
-        width: min(1080px, calc(100% - 40px));
+        width: min(1120px, calc(100% - 40px));
         margin-inline: auto;
       }
 
-      .section {
-        padding-block: clamp(76px, 9vw, 126px);
-      }
-
-      .nav {
+      .topbar {
         position: fixed;
         z-index: 50;
         inset: 0 0 auto;
@@ -83,18 +85,18 @@
         backdrop-filter: saturate(180%) blur(20px);
       }
 
-      .nav-inner {
+      .topbar-inner {
         display: flex;
-        min-height: 52px;
+        min-height: 54px;
         align-items: center;
         justify-content: space-between;
-        gap: 22px;
+        gap: 24px;
       }
 
       .brand {
         display: inline-flex;
         align-items: baseline;
-        gap: 11px;
+        gap: 12px;
         font-size: 20px;
         font-weight: 800;
         letter-spacing: -0.04em;
@@ -106,198 +108,44 @@
         letter-spacing: 0.14em;
       }
 
-      .nav-links {
+      .top-actions {
         display: flex;
         align-items: center;
-        gap: 25px;
-        color: #424245;
+        gap: 20px;
         font-size: 12px;
-        font-weight: 650;
+        font-weight: 680;
       }
 
-      .nav-links a {
-        transition: color 160ms ease;
+      .top-actions a:first-child {
+        color: var(--blue-dark);
       }
 
-      .nav-links a:hover,
-      .nav-links a:focus-visible {
-        color: var(--blue);
-      }
-
-      .contact-link {
-        color: var(--blue);
-        font-size: 12px;
-        font-weight: 650;
+      .resume-link {
+        padding: 8px 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
       }
 
       .hero {
-        padding: 148px 0 94px;
-        text-align: center;
+        min-height: 760px;
+        padding: 146px 0 90px;
       }
 
-      .hero-kicker {
-        margin: 0 0 26px;
-        color: var(--blue);
-        font-size: 14px;
-        font-weight: 650;
-      }
-
-      .display {
-        max-width: 980px;
-        margin: 0 auto;
-        font-size: clamp(54px, 8.6vw, 104px);
-        font-weight: 720;
-        letter-spacing: -0.065em;
-        line-height: 0.98;
-      }
-
-      .hero-copy {
-        max-width: 720px;
-        margin: 31px auto 0;
-        color: var(--muted);
-        font-size: clamp(18px, 2vw, 24px);
-        line-height: 1.65;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px 34px;
-        margin-top: 31px;
-      }
-
-      .text-action {
-        color: #0066cc;
-        font-size: 16px;
-        font-weight: 650;
-      }
-
-      .text-action:hover {
-        text-decoration: underline;
-      }
-
-      .hero-stage {
-        position: relative;
+      .hero-grid {
         display: grid;
-        min-height: 430px;
-        margin-top: 62px;
-        overflow: hidden;
-        border-radius: 30px;
-        background: var(--card);
-        place-items: center;
-      }
-
-      .hero-stage::before {
-        position: absolute;
-        width: 420px;
-        height: 420px;
-        border: 1px solid rgba(0, 113, 227, 0.18);
-        border-radius: 50%;
-        background: rgba(0, 113, 227, 0.035);
-        content: "";
-      }
-
-      .hero-number {
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-number strong {
-        display: block;
-        font-size: clamp(76px, 14vw, 150px);
-        letter-spacing: -0.075em;
-        line-height: 0.9;
-      }
-
-      .hero-number span {
-        display: block;
-        margin-top: 22px;
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 650;
-      }
-
-      .chips {
-        position: absolute;
-        z-index: 2;
-        right: 20px;
-        bottom: 28px;
-        left: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 13px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.9);
-        color: rgba(29, 29, 31, 0.72);
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .chip::before {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--blue);
-        content: "";
-      }
-
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        padding-bottom: clamp(86px, 9vw, 126px);
-      }
-
-      .stat {
-        min-height: 205px;
-        padding: 28px;
-        border-radius: 26px;
-        background: var(--card);
-      }
-
-      .stat strong {
-        display: block;
-        font-size: clamp(38px, 5vw, 68px);
-        letter-spacing: -0.06em;
-        line-height: 1;
-      }
-
-      .stat span {
-        display: block;
-        margin-top: 44px;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .dark {
-        background: #000;
-        color: #fff;
-      }
-
-      .about {
-        display: grid;
-        grid-template-columns: 0.65fr 1.35fr;
-        gap: 64px;
+        grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.65fr);
+        align-items: end;
+        gap: clamp(50px, 8vw, 110px);
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 9px;
         margin: 0;
+        color: var(--blue-dark);
         font-size: 12px;
-        font-weight: 800;
+        font-weight: 780;
         letter-spacing: 0.14em;
         text-transform: uppercase;
       }
@@ -310,95 +158,218 @@
         content: "";
       }
 
-      .dark .eyebrow::before {
-        background: var(--blue-light);
-      }
-
-      .about-meta {
-        margin-top: 24px;
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 14px;
-        line-height: 1.9;
-      }
-
-      .about h2 {
-        margin: 0;
-        font-size: clamp(34px, 5vw, 68px);
-        font-weight: 720;
-        letter-spacing: -0.055em;
-        line-height: 1.12;
-      }
-
-      .about h2 em {
-        color: var(--blue-light);
-        font-style: normal;
-      }
-
-      .about-copy {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        margin-top: 42px;
-        color: rgba(255, 255, 255, 0.63);
-        font-size: 16px;
-        line-height: 2;
-      }
-
-      .section-title {
+      .hero h1 {
         max-width: 850px;
-        margin: 18px 0 0;
-        font-size: clamp(38px, 6vw, 74px);
+        margin: 28px 0 0;
+        font-size: clamp(62px, 9vw, 116px);
         font-weight: 720;
-        letter-spacing: -0.05em;
-        line-height: 1.02;
+        letter-spacing: -0.075em;
+        line-height: 0.9;
       }
 
-      .section-intro {
-        max-width: 680px;
-        margin: 25px 0 0;
+      .hero h1 span {
+        display: block;
+        color: #86868b;
+      }
+
+      .intro {
+        max-width: 760px;
+        margin: 42px 0 0;
         color: var(--muted);
-        font-size: clamp(16px, 1.8vw, 20px);
+        font-size: clamp(18px, 2vw, 24px);
+        line-height: 1.75;
+      }
+
+      .intro strong {
+        color: var(--ink);
+        font-weight: 680;
+      }
+
+      .hero-aside {
+        padding: 26px 0 4px;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-aside-label {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 760;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .hero-aside p {
+        margin: 20px 0 0;
+        color: #3a3a3c;
+        font-size: 15px;
         line-height: 1.85;
       }
 
-      .dark .section-intro {
-        color: rgba(255, 255, 255, 0.55);
+      .quick-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 26px;
       }
 
-      .capabilities {
+      .fact {
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: var(--soft);
+        color: #4d4d51;
+        font-size: 11px;
+        font-weight: 720;
+      }
+
+      .nav-section {
+        padding: 0 0 86px;
+      }
+
+      .nav-note {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .main-tabs {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 62px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
       }
 
-      .capability {
-        min-height: 310px;
-        padding: 30px;
-        border-top: 1px solid var(--line);
-        transition: background-color 180ms ease;
+      .main-tab {
+        position: relative;
+        min-height: 190px;
+        padding: 24px;
+        overflow: hidden;
+        border: 0;
+        border-radius: 26px;
+        background: var(--soft);
+        color: var(--ink);
+        cursor: pointer;
+        text-align: left;
+        transition:
+          transform 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease;
       }
 
-      .capability:hover {
-        background: var(--card);
+      .main-tab:hover,
+      .main-tab:focus-visible {
+        transform: translateY(-3px);
       }
 
-      .capability .num {
+      .main-tab[aria-selected="true"] {
+        background: #111;
+        color: #fff;
+      }
+
+      .main-tab::after {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        right: -85px;
+        bottom: -95px;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        content: "";
+        opacity: 0.12;
+      }
+
+      .tab-number {
+        display: block;
         color: var(--blue);
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 800;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.14em;
       }
 
-      .capability h3 {
-        margin: 54px 0 0;
-        font-size: 30px;
+      .main-tab[aria-selected="true"] .tab-number {
+        color: #64aaff;
+      }
+
+      .tab-title {
+        display: block;
+        margin-top: 65px;
+        font-size: clamp(24px, 3vw, 34px);
+        font-weight: 720;
         letter-spacing: -0.045em;
       }
 
-      .capability p {
-        max-width: 470px;
+      .tab-arrow {
+        position: absolute;
+        top: 23px;
+        right: 24px;
+        font-size: 20px;
+      }
+
+      .content-area {
+        min-height: 820px;
+        background: var(--soft);
+      }
+
+      .panel {
+        padding-block: clamp(76px, 9vw, 124px);
+      }
+
+      .panel[hidden] {
+        display: none;
+      }
+
+      .panel-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr);
+        align-items: end;
+        gap: 60px;
+      }
+
+      .panel-title {
+        max-width: 830px;
+        margin: 20px 0 0;
+        font-size: clamp(46px, 7vw, 86px);
+        font-weight: 720;
+        letter-spacing: -0.06em;
+        line-height: 0.98;
+      }
+
+      .panel-intro {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.9;
+      }
+
+      .strength-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 68px;
+      }
+
+      .strength {
+        min-height: 320px;
+        padding: 30px;
+        border-radius: 26px;
+        background: #fff;
+      }
+
+      .strength-index {
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+
+      .strength h3 {
+        margin: 64px 0 0;
+        font-size: 32px;
+        letter-spacing: -0.045em;
+      }
+
+      .strength p {
+        max-width: 500px;
         margin: 18px 0 0;
-        color: rgba(0, 0, 0, 0.55);
+        color: var(--muted);
         line-height: 1.8;
       }
 
@@ -410,482 +381,374 @@
       }
 
       .tag {
-        padding: 8px 12px;
-        border: 1px solid var(--line);
-        border-radius: 999px;
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .soft {
-        background: var(--card);
-      }
-
-      .projects {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-        margin-top: 62px;
-      }
-
-      .project {
-        overflow: hidden;
-        border-radius: var(--radius);
-        background: #fff;
-      }
-
-      .project summary {
-        display: block;
-        cursor: pointer;
-        list-style: none;
-      }
-
-      .project summary::-webkit-details-marker {
-        display: none;
-      }
-
-      .project-art {
-        position: relative;
-        display: flex;
-        min-height: 240px;
-        align-items: flex-end;
-        justify-content: space-between;
-        padding: 28px;
-        overflow: hidden;
-        background: #e8f2ff;
-      }
-
-      .project:nth-child(2) .project-art {
-        background: #eeeef1;
-      }
-
-      .project:nth-child(3) .project-art {
-        background: #e9edf2;
-      }
-
-      .project:nth-child(4) .project-art {
-        background: #f1f3f5;
-      }
-
-      .project-art::before {
-        position: absolute;
-        width: 250px;
-        height: 250px;
-        top: -80px;
-        right: -50px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 50%;
-        content: "";
-      }
-
-      .case-label {
-        position: relative;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.16em;
-      }
-
-      .case-number {
-        position: relative;
-        display: block;
-        margin-top: 10px;
-        font-size: 48px;
-        font-weight: 760;
-        letter-spacing: -0.06em;
-      }
-
-      .round-arrow {
-        position: relative;
-        display: grid;
-        width: 48px;
-        height: 48px;
-        border: 1px solid rgba(0, 0, 0, 0.18);
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.45);
-        font-size: 20px;
-        place-items: center;
-        transition: transform 180ms ease;
-      }
-
-      details[open] .round-arrow {
-        transform: rotate(90deg);
-      }
-
-      .project-head {
-        padding: 30px;
-      }
-
-      .project-meta {
-        display: flex;
-        justify-content: space-between;
-        gap: 18px;
-        color: rgba(0, 0, 0, 0.43);
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      .project h3 {
-        margin: 24px 0 0;
-        font-size: 30px;
-        letter-spacing: -0.045em;
-      }
-
-      .project-subtitle {
-        margin: 10px 0 0;
-        color: #0066cc;
-        font-weight: 700;
-      }
-
-      .project-summary {
-        margin: 18px 0 0;
-        color: rgba(0, 0, 0, 0.56);
-        line-height: 1.8;
-      }
-
-      .project-open {
-        display: inline-block;
-        margin-top: 25px;
-        font-size: 13px;
-        font-weight: 800;
-      }
-
-      .project-detail {
-        padding: 0 30px 34px;
-      }
-
-      .project-detail-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-        padding-top: 27px;
-        border-top: 1px solid var(--line);
-      }
-
-      .project-detail h4 {
-        margin: 0;
-        color: var(--blue);
-        font-size: 11px;
-        letter-spacing: 0.13em;
-      }
-
-      .project-detail p,
-      .project-detail li {
-        color: rgba(0, 0, 0, 0.59);
-        font-size: 14px;
-        line-height: 1.85;
-      }
-
-      .project-detail ul {
-        margin: 12px 0 0;
-        padding-left: 18px;
-      }
-
-      .result {
-        grid-column: 1 / -1;
-        padding: 22px;
-        border-radius: 18px;
-        background: var(--card);
-      }
-
-      .videos {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-        margin-top: 62px;
-      }
-
-      .video {
-        position: relative;
-        display: flex;
-        min-height: 380px;
-        padding: 22px;
-        overflow: hidden;
-        border: 0;
-        border-radius: 26px;
-        background: var(--card);
-        color: var(--ink);
-        cursor: pointer;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: left;
-        transition: transform 180ms ease;
-      }
-
-      .video:hover,
-      .video:focus-visible {
-        transform: translateY(-3px);
-      }
-
-      .video::before {
-        position: absolute;
-        width: 230px;
-        height: 230px;
-        right: -100px;
-        bottom: -90px;
-        border-radius: 50%;
-        background: var(--video-color);
-        content: "";
-        filter: blur(10px);
-        opacity: 0.45;
-      }
-
-      .video.wide {
-        grid-column: span 2;
-      }
-
-      .video-top,
-      .video-bottom {
-        position: relative;
-        z-index: 1;
-      }
-
-      .video-top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-      }
-
-      .video-type {
         padding: 8px 11px;
         border: 1px solid var(--line);
         border-radius: 999px;
-        background: #fff;
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.11em;
-      }
-
-      .video-plays {
+        color: #4b4b4f;
         font-size: 11px;
-        font-weight: 800;
+        font-weight: 720;
       }
 
-      .play {
+      .proof-bar {
         display: grid;
-        width: 52px;
-        height: 52px;
-        margin-bottom: 22px;
-        border: 1px solid var(--line);
-        border-radius: 50%;
-        background: #fff;
-        place-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 14px;
+        overflow: hidden;
+        border-radius: 26px;
+        background: #111;
+        color: #fff;
       }
 
-      .play::before {
-        width: 0;
-        height: 0;
-        margin-left: 4px;
-        border-top: 7px solid transparent;
-        border-bottom: 7px solid transparent;
-        border-left: 11px solid var(--ink);
-        content: "";
+      .proof {
+        min-height: 175px;
+        padding: 26px;
+        border-right: 1px solid rgba(255, 255, 255, 0.13);
       }
 
-      .video h3 {
-        max-width: 420px;
-        margin: 0;
-        font-size: 23px;
-        letter-spacing: -0.04em;
-        line-height: 1.25;
+      .proof:last-child {
+        border-right: 0;
       }
 
-      .video p {
-        margin: 10px 0 0;
-        color: rgba(0, 0, 0, 0.5);
+      .proof strong {
+        display: block;
+        font-size: clamp(34px, 4.6vw, 58px);
+        letter-spacing: -0.06em;
+      }
+
+      .proof span {
+        display: block;
+        margin-top: 28px;
+        color: rgba(255, 255, 255, 0.52);
         font-size: 12px;
         line-height: 1.6;
       }
 
-      dialog {
-        width: min(760px, calc(100% - 28px));
-        padding: 0;
-        overflow: hidden;
-        border: 0;
-        border-radius: 26px;
-        background: #fff;
-        color: var(--ink);
-        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.34);
-      }
-
-      dialog::backdrop {
-        background: rgba(0, 0, 0, 0.76);
-        backdrop-filter: blur(14px);
-      }
-
-      .modal-visual {
-        position: relative;
-        display: grid;
-        min-height: 330px;
-        overflow: hidden;
-        background: #111;
-        color: #fff;
-        place-items: center;
-        text-align: center;
-      }
-
-      .modal-visual::before {
-        position: absolute;
-        width: 360px;
-        height: 360px;
-        border: 75px solid var(--blue);
-        border-radius: 50%;
-        content: "";
-        opacity: 0.72;
-      }
-
-      .modal-placeholder {
-        position: relative;
-        z-index: 1;
-        max-width: 330px;
-        padding: 32px;
-      }
-
-      .modal-placeholder strong {
-        font-size: 20px;
-      }
-
-      .modal-placeholder p {
-        color: rgba(255, 255, 255, 0.58);
-        font-size: 13px;
-        line-height: 1.8;
-      }
-
-      .modal-close {
-        position: absolute;
-        z-index: 3;
-        top: 16px;
-        right: 16px;
-        display: grid;
-        width: 44px;
-        height: 44px;
-        border: 0;
-        border-radius: 50%;
-        background: #fff;
-        cursor: pointer;
-        font-size: 22px;
-        place-items: center;
-      }
-
-      .modal-info {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 28px;
-        padding: 32px;
-      }
-
-      .modal-info .label {
-        color: var(--blue);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-      }
-
-      .modal-info h3 {
-        margin: 12px 0 0;
-        font-size: 30px;
-        letter-spacing: -0.05em;
-      }
-
-      .modal-info p {
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .other-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 62px;
-      }
-
-      .other-card {
-        padding: 32px;
-        border: 1px solid var(--line);
-        border-radius: 24px;
-      }
-
-      .other-card .tag {
-        display: inline-block;
-        background: var(--card);
-      }
-
-      .other-card h3 {
-        margin: 48px 0 0;
-        font-size: 30px;
-        letter-spacing: -0.045em;
-      }
-
-      .other-card p {
-        color: rgba(0, 0, 0, 0.56);
-        line-height: 1.8;
-      }
-
-      .other-card strong {
-        display: block;
-        margin-top: 30px;
-        padding-top: 18px;
-        border-top: 1px solid var(--line);
-        color: var(--blue);
-        font-size: 13px;
-      }
-
-      .experience-list {
-        margin-top: 62px;
+      .timeline {
+        margin-top: 70px;
         border-bottom: 1px solid var(--line);
       }
 
-      .experience {
+      .job {
         display: grid;
-        grid-template-columns: 0.85fr 1.25fr 2fr;
-        gap: 25px;
-        padding: 30px 0;
+        grid-template-columns: 0.8fr 1.1fr 2.1fr;
+        gap: 30px;
+        padding: 34px 0;
         border-top: 1px solid var(--line);
       }
 
-      .experience time {
-        color: var(--blue);
+      .job time {
+        color: var(--blue-dark);
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 780;
       }
 
-      .experience h3 {
+      .job h3 {
         margin: 0;
-        font-size: 23px;
+        font-size: 25px;
         letter-spacing: -0.04em;
       }
 
-      .experience .role {
-        margin: 8px 0 0;
-        color: rgba(0, 0, 0, 0.45);
+      .job-role {
+        margin: 9px 0 0;
+        color: var(--muted);
         font-size: 13px;
         font-weight: 700;
       }
 
-      .experience ul {
+      .job ul {
         display: grid;
-        gap: 10px;
+        gap: 11px;
         margin: 0;
         padding: 0;
-        color: rgba(0, 0, 0, 0.58);
+        color: #5a5a5f;
         font-size: 14px;
-        line-height: 1.8;
+        line-height: 1.75;
         list-style: none;
       }
 
-      .experience li::before {
+      .job li::before {
         margin-right: 10px;
         color: var(--blue);
         content: "→";
       }
 
-      .contact h2 {
-        max-width: 980px;
-        margin: 30px 0 0;
-        font-size: clamp(48px, 9vw, 112px);
+      .project-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 55px;
+      }
+
+      .project-filter {
+        min-height: 44px;
+        padding: 0 18px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: transparent;
+        color: #55555a;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 740;
+      }
+
+      .project-filter[aria-selected="true"] {
+        border-color: #111;
+        background: #111;
+        color: #fff;
+      }
+
+      .project-group {
+        margin-top: 28px;
+      }
+
+      .project-group[hidden] {
+        display: none;
+      }
+
+      .account-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .account-card {
+        min-height: 400px;
+        padding: 30px;
+        border-radius: 26px;
+        background: #fff;
+      }
+
+      .account-card.featured {
+        grid-column: span 2;
+        min-height: 360px;
+        background: #111;
+        color: #fff;
+      }
+
+      .account-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .account-label {
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .featured .account-label {
+        color: #64aaff;
+      }
+
+      .account-period {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .featured .account-period {
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .account-metric {
+        display: block;
+        margin-top: 55px;
+        font-size: clamp(54px, 7vw, 86px);
         font-weight: 740;
         letter-spacing: -0.07em;
-        line-height: 0.91;
+        line-height: 0.9;
+      }
+
+      .account-card h3 {
+        margin: 24px 0 0;
+        font-size: 27px;
+        letter-spacing: -0.045em;
+      }
+
+      .account-card p {
+        margin: 15px 0 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .featured p {
+        max-width: 790px;
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .account-result {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 28px;
+      }
+
+      .account-result span {
+        padding: 8px 11px;
+        border-radius: 999px;
+        background: var(--soft);
+        font-size: 11px;
+        font-weight: 720;
+      }
+
+      .featured .account-result span {
+        background: rgba(255, 255, 255, 0.11);
+        color: rgba(255, 255, 255, 0.77);
+      }
+
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .doc-card {
+        display: flex;
+        min-height: 310px;
+        padding: 26px;
+        border-radius: 24px;
+        background: #fff;
+        flex-direction: column;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .doc-card:hover,
+      .doc-card:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+      }
+
+      .doc-type {
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .doc-card h3 {
+        margin: 58px 0 0;
+        font-size: 24px;
+        letter-spacing: -0.04em;
+        line-height: 1.25;
+      }
+
+      .doc-card p {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .doc-action {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: auto;
+        padding-top: 34px;
+        color: var(--blue-dark);
+        font-size: 12px;
+        font-weight: 780;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .video-card {
+        overflow: hidden;
+        border-radius: 24px;
+        background: #111;
+        color: #fff;
+      }
+
+      .video-card video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        object-fit: contain;
+      }
+
+      .video-info {
+        padding: 24px;
+      }
+
+      .video-type {
+        color: #64aaff;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+      }
+
+      .video-info h3 {
+        margin: 15px 0 0;
+        font-size: 24px;
+        letter-spacing: -0.04em;
+      }
+
+      .video-info p {
+        margin: 10px 0 0;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .large-works {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .large-work {
+        min-height: 180px;
+        padding: 23px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.42);
+      }
+
+      .large-work span {
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .large-work h3 {
+        margin: 34px 0 0;
+        font-size: 20px;
+        letter-spacing: -0.035em;
+      }
+
+      .large-work p {
+        margin: 9px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .contact {
+        padding-block: clamp(80px, 9vw, 126px);
+        background: #000;
+        color: #fff;
+      }
+
+      .contact h2 {
+        max-width: 940px;
+        margin: 26px 0 0;
+        font-size: clamp(50px, 8vw, 102px);
+        font-weight: 720;
+        letter-spacing: -0.07em;
+        line-height: 0.92;
       }
 
       .contact-grid {
@@ -895,38 +758,38 @@
         gap: 36px;
         margin-top: 56px;
         padding-top: 30px;
-        border-top: 1px solid rgba(255, 255, 255, 0.24);
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
       }
 
       .contact-meta {
         display: grid;
         gap: 10px;
-        color: rgba(255, 255, 255, 0.68);
+        color: rgba(255, 255, 255, 0.61);
         font-size: 14px;
       }
 
       .contact-meta a {
         color: #fff;
-        font-weight: 750;
+        font-weight: 740;
       }
 
       .contact-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
       }
 
       .button {
         display: inline-flex;
+        min-height: 50px;
         align-items: center;
         justify-content: center;
-        gap: 22px;
-        min-height: 50px;
-        padding: 0 23px;
+        gap: 20px;
+        padding: 0 22px;
         border: 1px solid rgba(255, 255, 255, 0.35);
         border-radius: 999px;
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 780;
       }
 
       .button.primary {
@@ -937,91 +800,111 @@
 
       footer {
         padding: 28px 0;
-        background: var(--card);
-        color: var(--muted);
-        font-size: 12px;
+        background: #000;
+        color: rgba(255, 255, 255, 0.42);
+        font-size: 11px;
       }
 
       .footer-inner {
         display: flex;
         justify-content: space-between;
         gap: 18px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
       }
 
       @media (max-width: 900px) {
-        .nav-links {
-          display: none;
+        .hero {
+          min-height: auto;
         }
 
-        .about,
-        .experience {
+        .hero-grid,
+        .panel-header,
+        .job {
           grid-template-columns: 1fr;
         }
 
-        .videos {
-          grid-template-columns: 1fr 1fr;
+        .hero-aside {
+          max-width: 620px;
         }
 
-        .experience {
-          gap: 16px;
+        .proof-bar {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .proof:nth-child(2) {
+          border-right: 0;
+        }
+
+        .proof:nth-child(-n + 2) {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+        }
+
+        .doc-grid,
+        .large-works {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
       @media (max-width: 680px) {
         .shell {
-          width: min(100% - 28px, 1080px);
+          width: min(100% - 28px, 1120px);
         }
 
         .brand small,
-        .contact-link {
+        .top-actions > a:first-child {
           display: none;
         }
 
         .hero {
-          padding-top: 120px;
+          padding: 118px 0 64px;
         }
 
-        .hero-stage {
-          min-height: 340px;
+        .hero h1 {
+          font-size: clamp(56px, 18vw, 86px);
         }
 
-        .stats {
-          grid-template-columns: 1fr 1fr;
+        .intro {
+          margin-top: 30px;
+          font-size: 17px;
         }
 
-        .stat {
-          min-height: 165px;
-          padding: 21px;
+        .nav-section {
+          padding-bottom: 60px;
         }
 
-        .stat span {
-          margin-top: 28px;
+        .main-tabs {
+          grid-template-columns: 1fr;
         }
 
-        .about-copy,
-        .capabilities,
-        .projects,
-        .other-grid,
-        .project-detail-grid,
-        .modal-info,
+        .main-tab {
+          min-height: 124px;
+        }
+
+        .tab-title {
+          margin-top: 32px;
+        }
+
+        .strength-grid,
+        .account-grid,
+        .doc-grid,
+        .video-grid,
+        .large-works,
         .contact-grid {
           grid-template-columns: 1fr;
         }
 
-        .videos {
-          grid-template-columns: 1fr;
-        }
-
-        .video.wide {
+        .account-card.featured {
           grid-column: auto;
         }
 
-        .video {
-          min-height: 335px;
+        .proof-bar {
+          grid-template-columns: 1fr 1fr;
         }
 
-        .project-art {
-          min-height: 205px;
+        .proof {
+          min-height: 150px;
+          padding: 20px;
         }
 
         .contact-actions {
@@ -1051,341 +934,321 @@
     </style>
   </head>
   <body>
-    <header class="nav">
-      <div class="shell nav-inner">
+    <header class="topbar">
+      <div class="shell topbar-inner">
         <a class="brand" href="#top" aria-label="返回首页">
           LXC.
           <small>CONTENT PORTFOLIO</small>
         </a>
-        <nav class="nav-links" aria-label="主导航">
-          <a href="#about">关于</a>
-          <a href="#capabilities">能力</a>
-          <a href="#projects">案例</a>
-          <a href="#videos">视频</a>
-          <a href="#experience">经历</a>
-          <a href="#contact">联系</a>
-        </nav>
-        <a class="contact-link" href="mailto:1293903409@qq.com">联系我</a>
+        <div class="top-actions">
+          <a href="mailto:1293903409@qq.com">1293903409@qq.com</a>
+          <a class="resume-link" href="./resume.pdf" download>下载简历 ↓</a>
+        </div>
       </div>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="shell">
-          <p class="hero-kicker">李晓聪 · 品牌内容运营作品集</p>
-          <h1 class="display">把复杂内容，<br />变成有效传播。</h1>
-          <p class="hero-copy">
-            4年+内容运营经验，覆盖定位、选题、脚本、视频制作、账号运营与数据复盘。
-          </p>
-          <div class="hero-actions">
-            <a class="text-action" href="#projects">查看项目案例 →</a>
-            <a class="text-action" href="./resume.pdf" download>下载个人简历 ↓</a>
-          </div>
-          <div class="hero-stage" aria-label="累计内容播放数据">
-            <div class="hero-number">
-              <strong>3亿+</strong>
-              <span>累计内容播放量</span>
-            </div>
-            <div class="chips">
-              <span class="chip">用户洞察</span>
-              <span class="chip">脚本表达</span>
-              <span class="chip">视频制作</span>
-              <span class="chip">数据增长</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="shell stats" aria-label="核心数据">
-        <article class="stat"><strong>4个</strong><span>医学专家账号从0到1孵化</span></article>
-        <article class="stat"><strong>65万+</strong><span>累计账号粉丝规模</span></article>
-        <article class="stat"><strong>3亿+</strong><span>累计内容播放量</span></article>
-        <article class="stat"><strong>1592万+</strong><span>单条代表内容播放量</span></article>
-        <article class="stat"><strong>5个月</strong><span>龙梅医生账号达到10万粉丝</span></article>
-        <article class="stat"><strong>3个月</strong><span>陈华医生账号达到5万粉丝</span></article>
-      </section>
-
-      <section id="about" class="section dark">
-        <div class="shell about">
+        <div class="shell hero-grid">
           <div>
-            <p class="eyebrow">About me</p>
-            <p class="about-meta">广播电视编导本科<br />4年+内容运营经验</p>
+            <p class="eyebrow">Content operator · Shenzhen</p>
+            <h1>你好，我是<span>李晓聪。</span></h1>
+            <p class="intro">
+              一名拥有<strong>4年+经验</strong>的内容运营。我擅长把专业信息转化为用户愿意看、愿意理解、愿意传播的
+              <strong>账号、视频与文案</strong>。累计内容播放量超过3亿，独立或深度参与4个专家账号从0到1。
+            </p>
           </div>
-          <div>
-            <h2>
-              我擅长的不是把专业内容<em>“说简单”</em>，而是找到用户愿意看下去的表达方式。
-            </h2>
-            <div class="about-copy">
-              <p>
-                过去的工作覆盖完整内容链路：账号定位、用户分析、选题策划、脚本撰写、专家沟通、拍摄统筹、视频剪辑、发布运营及数据复盘。
+          <aside class="hero-aside">
+            <span class="hero-aside-label">Now</span>
+            <p>
+              希望把账号增长、话题洞察和视频制作经验，应用到更广泛的品牌、文旅和社交媒体内容中。
+            </p>
+            <div class="quick-facts">
+              <span class="fact">深圳</span>
+              <span class="fact">内容策划</span>
+              <span class="fact">视频制作</span>
+              <span class="fact">账号增长</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="nav-section">
+        <div class="shell">
+          <p class="nav-note">选择你想了解的部分</p>
+          <div class="main-tabs" role="tablist" aria-label="作品集主要内容">
+            <button
+              class="main-tab"
+              id="tab-strengths"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-strengths"
+              data-panel="strengths"
+            >
+              <span class="tab-number">01</span>
+              <span class="tab-arrow">↗</span>
+              <span class="tab-title">个人优势</span>
+            </button>
+            <button
+              class="main-tab"
+              id="tab-experience"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-experience"
+              data-panel="experience"
+            >
+              <span class="tab-number">02</span>
+              <span class="tab-arrow">↗</span>
+              <span class="tab-title">工作经历</span>
+            </button>
+            <button
+              class="main-tab"
+              id="tab-projects"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-projects"
+              data-panel="projects"
+            >
+              <span class="tab-number">03</span>
+              <span class="tab-arrow">↗</span>
+              <span class="tab-title">项目成果</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="content-area" id="portfolio-content">
+        <section
+          class="panel"
+          id="panel-strengths"
+          role="tabpanel"
+          aria-labelledby="tab-strengths"
+          data-panel-content="strengths"
+        >
+          <div class="shell">
+            <header class="panel-header">
+              <div>
+                <p class="eyebrow">Personal strengths</p>
+                <h2 class="panel-title">我能把内容从想法，推到结果。</h2>
+              </div>
+              <p class="panel-intro">
+                我的优势不是单一的写稿或剪辑，而是理解目标、找到表达、完成制作，再用数据判断下一步。
               </p>
-              <p>
-                目前希望将专业内容转化与增长经验，应用于品牌内容、社交媒体传播和更广泛的内容增长项目。
-              </p>
+            </header>
+
+            <div class="strength-grid">
+              <article class="strength">
+                <span class="strength-index">01 · STRATEGY</span>
+                <h3>选题与账号定位</h3>
+                <p>从用户问题、平台语境和账号差异化出发，形成可持续的内容方向与选题结构。</p>
+                <div class="tags"><span class="tag">用户洞察</span><span class="tag">热点判断</span><span class="tag">栏目规划</span></div>
+              </article>
+              <article class="strength">
+                <span class="strength-index">02 · EXPRESSION</span>
+                <h3>文案与脚本表达</h3>
+                <p>把专业、复杂或商业化的信息，翻译成用户能快速理解并愿意继续观看的内容。</p>
+                <div class="tags"><span class="tag">短视频脚本</span><span class="tag">口播文案</span><span class="tag">策划方案</span></div>
+              </article>
+              <article class="strength">
+                <span class="strength-index">03 · PRODUCTION</span>
+                <h3>视频制作与沟通</h3>
+                <p>覆盖拍摄统筹、出镜者沟通、剪辑包装和交付，能把策划真正落实为成片。</p>
+                <div class="tags"><span class="tag">拍摄统筹</span><span class="tag">剪辑包装</span><span class="tag">跨团队协作</span></div>
+              </article>
+              <article class="strength">
+                <span class="strength-index">04 · GROWTH</span>
+                <h3>运营与数据迭代</h3>
+                <p>结合播放、完播、互动与转粉表现定位内容问题，把有效方法沉淀为稳定生产能力。</p>
+                <div class="tags"><span class="tag">账号冷启动</span><span class="tag">数据复盘</span><span class="tag">增长验证</span></div>
+              </article>
+            </div>
+
+            <div class="proof-bar" aria-label="代表数据">
+              <div class="proof"><strong>3亿+</strong><span>累计内容播放量</span></div>
+              <div class="proof"><strong>65万+</strong><span>累计账号粉丝规模</span></div>
+              <div class="proof"><strong>1592万+</strong><span>单条代表内容播放</span></div>
+              <div class="proof"><strong>4个</strong><span>账号从0到1孵化</span></div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="capabilities" class="section">
-        <div class="shell">
-          <p class="eyebrow">Capabilities</p>
-          <h2 class="section-title">从策略到成片，再回到数据</h2>
-          <p class="section-intro">
-            不是只完成一条视频，而是把定位、生产、发布与复盘连接成可持续的内容工作流。
-          </p>
-          <div class="capabilities">
-            <article class="capability">
-              <span class="num">01</span>
-              <h3>账号从0到1孵化</h3>
-              <p>从定位与人设开始，完成冷启动测试、栏目搭建和日常运营。</p>
-              <div class="tags">
-                <span class="tag">账号定位</span><span class="tag">用户分析</span>
-                <span class="tag">冷启动测试</span><span class="tag">栏目搭建</span>
+        <section
+          class="panel"
+          id="panel-experience"
+          role="tabpanel"
+          aria-labelledby="tab-experience"
+          data-panel-content="experience"
+          hidden
+        >
+          <div class="shell">
+            <header class="panel-header">
+              <div>
+                <p class="eyebrow">Work experience</p>
+                <h2 class="panel-title">从专业垂类，到品牌内容。</h2>
               </div>
-            </article>
-            <article class="capability">
-              <span class="num">02</span>
-              <h3>内容策划与脚本</h3>
-              <p>把专业知识、用户问题和热点信息转化为适合平台传播的内容。</p>
-              <div class="tags">
-                <span class="tag">热点选题</span><span class="tag">知识转化</span>
-                <span class="tag">口播脚本</span><span class="tag">商业策划</span>
-              </div>
-            </article>
-            <article class="capability">
-              <span class="num">03</span>
-              <h3>视频制作与统筹</h3>
-              <p>覆盖沟通、拍摄、画面设计、剪辑包装和封面标题优化。</p>
-              <div class="tags">
-                <span class="tag">拍摄统筹</span><span class="tag">专家沟通</span>
-                <span class="tag">剪辑包装</span><span class="tag">画面设计</span>
-              </div>
-            </article>
-            <article class="capability">
-              <span class="num">04</span>
-              <h3>数据复盘与增长</h3>
-              <p>通过播放、完播、互动和转粉表现定位问题，持续迭代内容。</p>
-              <div class="tags">
-                <span class="tag">播放分析</span><span class="tag">完播分析</span>
-                <span class="tag">互动分析</span><span class="tag">方向迭代</span>
-              </div>
-            </article>
+              <p class="panel-intro">
+                4年多的工作让我完整经历了账号冷启动、稳定生产、内容增长、用户承接与商业合作。
+              </p>
+            </header>
+
+            <div class="timeline">
+              <article class="job">
+                <time>2024.06—2026.04</time>
+                <div><h3>方舟健客</h3><p class="job-role">内容运营</p></div>
+                <ul><li>负责龙梅医生、陈华医生账号从0到1孵化</li><li>参与定位、选题、脚本、拍摄、剪辑和数据复盘</li><li>参与健康品牌商业内容合作与项目协同</li></ul>
+              </article>
+              <article class="job">
+                <time>2022.11—2024.06</time>
+                <div><h3>中和医疗</h3><p class="job-role">新媒体运营</p></div>
+                <ul><li>孵化王雪医生及任天丽医生账号</li><li>负责抖音、小红书内容运营与医生IP矩阵</li><li>通过评论、私信与内容设计推动用户咨询</li></ul>
+              </article>
+              <article class="job">
+                <time>2022.04—2022.09</time>
+                <div><h3>邦唐邦知识产权有限公司</h3><p class="job-role">新媒体运营</p></div>
+                <ul><li>运营知识产权及法律类专业账号</li><li>视频播放量较前期提升约500%</li><li>独立完成企业校招宣传片的创意与后期</li></ul>
+              </article>
+              <article class="job">
+                <time>2017—2021</time>
+                <div><h3>重庆邮电大学</h3><p class="job-role">广播电视编导｜本科</p></div>
+                <ul><li>校级三等奖学金</li><li>重庆市大学生广告创意大赛三等奖</li><li>参与纪录片、剧情片、广告和大型活动视频制作</li></ul>
+              </article>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="projects" class="section soft">
-        <div class="shell">
-          <p class="eyebrow">Selected cases</p>
-          <h2 class="section-title">精选账号案例</h2>
-          <p class="section-intro">
-            四个从0开始的专业账号，展示定位、内容生产、增长验证与矩阵运营的不同侧面。点击案例可展开完整信息。
-          </p>
-          <div class="projects">
-            <details class="project">
-              <summary>
-                <div class="project-art">
-                  <div>
-                    <span class="case-label">CASE 01</span>
-                    <strong class="case-number">25.9万</strong>
-                  </div>
-                  <span class="round-arrow">↗</span>
-                </div>
-                <div class="project-head">
-                  <div class="project-meta"><span>2024—2026</span><span>医生口播</span></div>
+        <section
+          class="panel"
+          id="panel-projects"
+          role="tabpanel"
+          aria-labelledby="tab-projects"
+          data-panel-content="projects"
+          hidden
+        >
+          <div class="shell">
+            <header class="panel-header">
+              <div>
+                <p class="eyebrow">Selected work</p>
+                <h2 class="panel-title">账号、文案与视频成果。</h2>
+              </div>
+              <p class="panel-intro">
+                这里展示能够被验证的账号增长，以及过去完成的策划方案、脚本与视频成片。
+              </p>
+            </header>
+
+            <div class="project-switcher" role="tablist" aria-label="项目成果分类">
+              <button class="project-filter" type="button" role="tab" aria-selected="true" data-project-group="accounts">账号成果</button>
+              <button class="project-filter" type="button" role="tab" aria-selected="false" data-project-group="copy">文案与策划</button>
+              <button class="project-filter" type="button" role="tab" aria-selected="false" data-project-group="videos">视频作品</button>
+            </div>
+
+            <div class="project-group" data-project-content="accounts">
+              <div class="account-grid">
+                <article class="account-card featured">
+                  <div class="account-top"><span class="account-label">Account incubation · 01</span><span class="account-period">2024—2026</span></div>
+                  <strong class="account-metric">25.9万</strong>
                   <h3>生殖中心龙梅医生</h3>
-                  <p class="project-subtitle">从0到25.9万粉丝的专业账号孵化</p>
-                  <p class="project-summary">
-                    围绕生育、备孕、孕期与生殖医学，建立专业可信、同时具备平台传播力的医生内容账号。
-                  </p>
-                  <span class="project-open">展开完整案例 →</span>
-                </div>
-              </summary>
-              <div class="project-detail">
-                <div class="project-detail-grid">
-                  <div><h4>项目目标</h4><p>半年内完成冷启动并达到10万粉丝，同时形成可复制的内容生产方法。</p></div>
-                  <div><h4>核心数据</h4><p>5个月达到10万粉丝；最终增长至25.9万粉丝。</p></div>
-                  <div><h4>我的工作</h4><ul><li>定位与医生专业优势梳理</li><li>选题、口播与场景脚本</li><li>拍摄、剪辑、发布与复盘</li></ul></div>
-                  <div><h4>核心方法</h4><ul><li>前期高频测试高响应选题</li><li>动画与新闻素材降低理解门槛</li><li>沉淀有效结构与稳定栏目</li></ul></div>
-                  <div class="result"><h4>结果</h4><p>账号发布约第五、六条内容时出现首个爆款，随后持续复制有效方向，5个月达到10万粉丝。</p></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="project">
-              <summary>
-                <div class="project-art">
-                  <div>
-                    <span class="case-label">CASE 02</span>
-                    <strong class="case-number">9.2万</strong>
-                  </div>
-                  <span class="round-arrow">↗</span>
-                </div>
-                <div class="project-head">
-                  <div class="project-meta"><span>2024—2026</span><span>女性健康</span></div>
+                  <p>参与定位、选题、脚本、医生沟通、拍摄、剪辑与数据复盘。账号发布早期即出现爆款，5个月达到10万粉丝。</p>
+                  <div class="account-result"><span>0→1孵化</span><span>5个月10万粉</span><span>医学动画</span><span>热点转化</span></div>
+                </article>
+                <article class="account-card">
+                  <div class="account-top"><span class="account-label">Account · 02</span><span class="account-period">2024—2026</span></div>
+                  <strong class="account-metric">9.2万</strong>
                   <h3>妇科陈华医生</h3>
-                  <p class="project-subtitle">3个月完成5万粉丝冷启动</p>
-                  <p class="project-summary">
-                    从女性健康用户的高频问题出发，持续测试选题、开头结构和视频形式，缩短账号冷启动周期。
-                  </p>
-                  <span class="project-open">展开完整案例 →</span>
-                </div>
-              </summary>
-              <div class="project-detail">
-                <div class="project-detail-grid">
-                  <div><h4>项目目标</h4><p>以稳定栏目获取目标女性用户，并提升内容转粉效率。</p></div>
-                  <div><h4>核心数据</h4><p>3个月达到5万粉丝；后续增长至9.2万粉丝。</p></div>
-                  <div><h4>我的工作</h4><ul><li>账号定位、选题与脚本</li><li>医生沟通、拍摄与剪辑</li><li>标题封面优化和数据复盘</li></ul></div>
-                  <div><h4>核心方法</h4><ul><li>建立高频问题题库</li><li>测试开头、时长与表达结构</li><li>按播放与转粉筛选稳定栏目</li></ul></div>
-                  <div class="result"><h4>结果</h4><p>验证了选题测试与表达优化对冷启动效率的推动作用，形成可复用的内容方法。</p></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="project">
-              <summary>
-                <div class="project-art">
-                  <div>
-                    <span class="case-label">CASE 03</span>
-                    <strong class="case-number">20万+</strong>
-                  </div>
-                  <span class="round-arrow">↗</span>
-                </div>
-                <div class="project-head">
-                  <div class="project-meta"><span>2022—2024</span><span>矩阵运营</span></div>
+                  <p>围绕女性健康高频问题持续测试选题、开头与表达形式，3个月达到5万粉丝。</p>
+                  <div class="account-result"><span>3个月5万粉</span><span>全链路执行</span></div>
+                </article>
+                <article class="account-card">
+                  <div class="account-top"><span class="account-label">Account · 03</span><span class="account-period">2022—2024</span></div>
+                  <strong class="account-metric">20万+</strong>
                   <h3>中医妇科王雪医生</h3>
-                  <p class="project-subtitle">从单一账号到内容矩阵</p>
-                  <p class="project-summary">
-                    完成中医妇科医生账号从0到20万粉丝增长，并逐步搭建图文、短视频和医生助手号内容矩阵。
-                  </p>
-                  <span class="project-open">展开完整案例 →</span>
-                </div>
-              </summary>
-              <div class="project-detail">
-                <div class="project-detail-grid">
-                  <div><h4>项目目标</h4><p>建立专业形象，形成覆盖传播、互动与咨询承接的账号矩阵。</p></div>
-                  <div><h4>核心数据</h4><p>账号从0增长至20万+粉丝，并实现多账号协同。</p></div>
-                  <div><h4>我的工作</h4><ul><li>账号搭建、定位与栏目规划</li><li>策划、脚本、拍摄与剪辑</li><li>评论、私信与咨询运营</li></ul></div>
-                  <div><h4>核心方法</h4><ul><li>建立女性健康内容支柱</li><li>评论区问题反向生成选题</li><li>拆分账号角色减少内容重复</li></ul></div>
-                  <div class="result"><h4>结果</h4><p>建立图文、短视频和医生助手号等协同矩阵，积累长期内容运营与用户沟通经验。</p></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="project">
-              <summary>
-                <div class="project-art">
-                  <div>
-                    <span class="case-label">CASE 04</span>
-                    <strong class="case-number">5万+</strong>
-                  </div>
-                  <span class="round-arrow">↗</span>
-                </div>
-                <div class="project-head">
-                  <div class="project-meta"><span>2023—2024</span><span>专业转化</span></div>
+                  <p>从单一账号扩展至图文、短视频和医生助手号内容矩阵，并持续承接用户咨询。</p>
+                  <div class="account-result"><span>矩阵运营</span><span>评论选题</span><span>用户承接</span></div>
+                </article>
+                <article class="account-card">
+                  <div class="account-top"><span class="account-label">Account · 04</span><span class="account-period">2023—2024</span></div>
+                  <strong class="account-metric">5万+</strong>
                   <h3>免疫保胎任天丽医生</h3>
-                  <p class="project-subtitle">高专业门槛内容的大众化表达</p>
-                  <p class="project-summary">
-                    针对复发性流产、备孕及免疫保胎等议题，完成内容转化、视频制作与用户承接。
-                  </p>
-                  <span class="project-open">展开完整案例 →</span>
-                </div>
-              </summary>
-              <div class="project-detail">
-                <div class="project-detail-grid">
-                  <div><h4>项目目标</h4><p>降低专业信息的获取门槛，通过持续内容运营建立账号信任。</p></div>
-                  <div><h4>核心数据</h4><p>账号增长至5万+粉丝，形成高专业门槛内容的稳定表达。</p></div>
-                  <div><h4>我的工作</h4><ul><li>选题与医学内容转化</li><li>脚本、拍摄与后期剪辑</li><li>账号运营和咨询承接</li></ul></div>
-                  <div><h4>核心方法</h4><ul><li>从真实困惑切入专业议题</li><li>控制单条视频信息密度</li><li>复杂概念拆解成连续选题</li></ul></div>
-                  <div class="result"><h4>结果</h4><p>积累高专业门槛内容转化和焦虑型用户沟通经验，并实现稳定粉丝增长。</p></div>
-                </div>
+                  <p>将高专业门槛信息拆解成用户可理解的连续选题，积累焦虑型用户沟通经验。</p>
+                  <div class="account-result"><span>知识转化</span><span>细分垂类</span><span>全流程运营</span></div>
+                </article>
+                <article class="account-card">
+                  <div class="account-top"><span class="account-label">Beyond medical</span><span class="account-period">2022</span></div>
+                  <strong class="account-metric">+500%</strong>
+                  <h3>知识产权与法律账号</h3>
+                  <p>围绕商标、著作权、工程欠款和彩礼等议题完成选题、口播脚本与视频制作。</p>
+                  <div class="account-result"><span>行业热点</span><span>法律口播</span><span>播放提升</span></div>
+                </article>
               </div>
-            </details>
-          </div>
-        </div>
-      </section>
+            </div>
 
-      <section id="videos" class="section">
-        <div class="shell">
-          <p class="eyebrow">Selected videos</p>
-          <h2 class="section-title">不是视频墙，是传播结果</h2>
-          <p class="section-intro">
-            首批展示代表性内容与个人职责。点击卡片可查看作品信息；获得可公开的视频链接后可直接替换为在线播放。
-          </p>
-          <div class="videos">
-            <button class="video wide" style="--video-color:#b9dcff" data-title="如何正确佩戴避孕套？" data-type="知识演示" data-account="女性健康医生账号" data-plays="1592万+" data-role="内容策划、拍摄设计、剪辑制作">
-              <span class="video-top"><span class="video-type">知识演示</span><span class="video-plays">1592万+</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>如何正确佩戴避孕套？</h3><p>女性健康医生账号</p></span>
-            </button>
-            <button class="video" style="--video-color:#d8e0e8" data-title="女孩子多大来月经？" data-type="用户问答" data-account="妇科医生账号" data-plays="832万+" data-role="选题、脚本、拍摄、后期">
-              <span class="video-top"><span class="video-type">用户问答</span><span class="video-plays">832万+</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>女孩子多大来月经？</h3><p>妇科医生账号</p></span>
-            </button>
-            <button class="video" style="--video-color:#c7d9ed" data-title="顺产下面一定要剪一刀吗？" data-type="医学科普" data-account="中医妇科王雪医生" data-plays="713万+" data-role="选题、脚本、拍摄、剪辑、运营">
-              <span class="video-top"><span class="video-type">医学科普</span><span class="video-plays">713万+</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>顺产下面一定要剪一刀吗？</h3><p>中医妇科王雪医生</p></span>
-            </button>
-            <button class="video wide" style="--video-color:#dfe3e8" data-title="备孕最容易忽略的一件事" data-type="备孕科普" data-account="生殖中心龙梅医生" data-plays="百万级" data-role="选题、脚本、剪辑、发布复盘">
-              <span class="video-top"><span class="video-type">备孕科普</span><span class="video-plays">百万级</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>备孕最容易忽略的一件事</h3><p>生殖中心龙梅医生</p></span>
-            </button>
-            <button class="video" style="--video-color:#d4d9df" data-title="女性健康的高频误区" data-type="误区拆解" data-account="妇科陈华医生" data-plays="百万级" data-role="全流程内容运营">
-              <span class="video-top"><span class="video-type">误区拆解</span><span class="video-plays">百万级</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>女性健康的高频误区</h3><p>妇科陈华医生</p></span>
-            </button>
-            <button class="video" style="--video-color:#d8e6e3" data-title="看懂检查单里的关键信息" data-type="知识转化" data-account="免疫保胎任天丽医生" data-plays="代表内容" data-role="医学内容转化、脚本、后期">
-              <span class="video-top"><span class="video-type">知识转化</span><span class="video-plays">代表内容</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>看懂检查单里的关键信息</h3><p>免疫保胎任天丽医生</p></span>
-            </button>
-            <button class="video" style="--video-color:#d8d5d3" data-title="企业校招宣传片" data-type="品牌视频" data-account="企业品牌项目" data-plays="9分钟+" data-role="创意、素材统筹、剪辑全流程">
-              <span class="video-top"><span class="video-type">品牌视频</span><span class="video-plays">9分钟+</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>企业校招宣传片</h3><p>企业品牌项目</p></span>
-            </button>
-            <button class="video" style="--video-color:#cfd5df" data-title="城市与人物影像" data-type="纪实影像" data-account="纪录片及影像作品" data-plays="作品选集" data-role="策划、拍摄、剪辑">
-              <span class="video-top"><span class="video-type">纪实影像</span><span class="video-plays">作品选集</span></span>
-              <span class="video-bottom"><span class="play"></span><h3>城市与人物影像</h3><p>纪录片及影像作品</p></span>
-            </button>
-          </div>
-        </div>
-      </section>
+            <div class="project-group" data-project-content="copy" hidden>
+              <div class="doc-grid">
+                <a class="doc-card" href="./hospital-ip.pdf" target="_blank" rel="noreferrer">
+                  <span class="doc-type">IP &amp; Campaign</span><h3>重庆儿童医院科普形象设计方案</h3><p>医院科普IP、内容方向与活动传播方案。</p><span class="doc-action"><span>在线查看</span><span>↗</span></span>
+                </a>
+                <a class="doc-card" href="./campaign-farm.pdf" target="_blank" rel="noreferrer">
+                  <span class="doc-type">Campaign plan</span><h3>欢乐农场行策划方案</h3><p>线下活动的主题、环节与传播内容策划。</p><span class="doc-action"><span>在线查看</span><span>↗</span></span>
+                </a>
+                <a class="doc-card" href="./event-birthday.docx">
+                  <span class="doc-type">Event plan</span><h3>小火锅小红梅四周年生日会</h3><p>品牌活动流程、互动内容与现场执行方案。</p><span class="doc-action"><span>下载文档</span><span>↓</span></span>
+                </a>
+                <a class="doc-card" href="./script-huoli.docx">
+                  <span class="doc-type">City script</span><h3>璧山区系列片｜活力之城</h3><p>城市形象系列片执行脚本与镜头表达。</p><span class="doc-action"><span>下载脚本</span><span>↓</span></span>
+                </a>
+                <a class="doc-card" href="./script-ruya.docx">
+                  <span class="doc-type">City script</span><h3>璧山区系列片｜儒雅之城</h3><p>围绕城市人文气质设计的系列片脚本。</p><span class="doc-action"><span>下载脚本</span><span>↓</span></span>
+                </a>
+                <a class="doc-card" href="./screenplay-weiguan.pdf" target="_blank" rel="noreferrer">
+                  <span class="doc-type">Screenplay</span><h3>剧情短片《围观》</h3><p>原创剧情剧本，展示叙事结构与人物表达。</p><span class="doc-action"><span>在线查看</span><span>↗</span></span>
+                </a>
+                <a class="doc-card" href="./screenplay-shicha.pdf" target="_blank" rel="noreferrer">
+                  <span class="doc-type">Screenplay</span><h3>剧情短片《时差乐曲》</h3><p>原创剧情剧本，展示情节推进与视听构思。</p><span class="doc-action"><span>在线查看</span><span>↗</span></span>
+                </a>
+              </div>
+            </div>
 
-      <section class="section">
-        <div class="shell">
-          <p class="eyebrow">Beyond vertical accounts</p>
-          <h2 class="section-title">不止医生账号</h2>
-          <p class="section-intro">
-            企业账号、品牌影像、活动策划与纪实创作，共同构成更完整的内容能力。
-          </p>
-          <div class="other-grid">
-            <article class="other-card"><span class="tag">专业服务</span><h3>企业新媒体账号</h3><p>独立运营知识产权及法律类抖音、视频号账号，围绕行业热点策划专业内容。</p><strong>整体播放量较前期提升约500%</strong></article>
-            <article class="other-card"><span class="tag">品牌影像</span><h3>企业校招宣传片</h3><p>独立完成9分钟以上宣传片，覆盖创意构思、素材整理、结构设计和后期剪辑。</p><strong>创意—成片全流程</strong></article>
-            <article class="other-card"><span class="tag">活动策划</span><h3>医院科普与IP项目</h3><p>参与儿童医院科普活动方案、活动流程、执行文档、医院IP形象及内容排期设计。</p><strong>方案—执行协同</strong></article>
-            <article class="other-card"><span class="tag">纪实影像</span><h3>纪录片与剧情片</h3><p>广播电视编导专业训练，参与课程视频、大型活动拍摄、纪录片和剧情片制作。</p><strong>多类型视频基础</strong></article>
+            <div class="project-group" data-project-content="videos" hidden>
+              <div class="video-grid">
+                <article class="video-card">
+                  <video controls preload="metadata" playsinline src="./trademark.mp4"></video>
+                  <div class="video-info"><span class="video-type">LEGAL CONTENT</span><h3>商标注册口播视频</h3><p>行业选题、口播内容与后期制作。</p></div>
+                </article>
+                <article class="video-card">
+                  <video controls preload="metadata" playsinline src="./copyright.mp4"></video>
+                  <div class="video-info"><span class="video-type">LEGAL CONTENT</span><h3>著作权口播视频</h3><p>专业知识转化、标题表达与视频剪辑。</p></div>
+                </article>
+                <article class="video-card">
+                  <video controls preload="metadata" playsinline src="./bride-price.mp4"></video>
+                  <div class="video-info"><span class="video-type">TOPICAL CONTENT</span><h3>法律中的彩礼</h3><p>社会话题切入、口播脚本与成片制作。</p></div>
+                </article>
+                <article class="video-card">
+                  <video controls preload="metadata" playsinline src="./debt-recovery.mp4"></video>
+                  <div class="video-info"><span class="video-type">LEGAL CONTENT</span><h3>追回工程欠款</h3><p>用户问题拆解、专业表达与视频剪辑。</p></div>
+                </article>
+              </div>
+              <div class="large-works" aria-label="其他视频项目">
+                <article class="large-work"><span>BRAND FILM</span><h3>企业校招宣传片</h3><p>9分钟+，创意、素材统筹与剪辑全流程。</p></article>
+                <article class="large-work"><span>DOCUMENTARY</span><h3>《盆聚山水 景观人生》</h3><p>人物与行业纪实影像。</p></article>
+                <article class="large-work"><span>SHORT FILM</span><h3>《时空信件》</h3><p>剧情短片策划与视听制作。</p></article>
+                <article class="large-work"><span>PUBLIC CAMPAIGN</span><h3>《守护未开之花》</h3><p>公益主题内容与影像表达。</p></article>
+                <article class="large-work"><span>EVENT VIDEO</span><h3>青年活动快闪</h3><p>多素材节奏剪辑与活动氛围塑造。</p></article>
+                <article class="large-work"><span>ADVERTISING</span><h3>《怦然心动》娃哈哈广告</h3><p>广告创意与影像制作练习。</p></article>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      <section id="experience" class="section soft">
-        <div class="shell">
-          <p class="eyebrow">Experience</p>
-          <h2 class="section-title">工作与教育经历</h2>
-          <div class="experience-list">
-            <article class="experience"><time>2024.06—2026.04</time><div><h3>方舟健客</h3><p class="role">内容运营</p></div><ul><li>负责龙梅医生、陈华医生账号从0到1孵化</li><li>参与定位、选题、脚本、拍摄、剪辑和数据复盘</li><li>参与健康品牌商业内容合作与项目协同</li></ul></article>
-            <article class="experience"><time>2022.11—2024.06</time><div><h3>中和医疗</h3><p class="role">新媒体运营</p></div><ul><li>孵化王雪医生及任天丽医生账号</li><li>负责抖音、小红书内容运营与医生IP矩阵</li><li>通过评论、私信和内容设计推动用户咨询</li></ul></article>
-            <article class="experience"><time>2022.04—2022.09</time><div><h3>邦唐邦知识产权有限公司</h3><p class="role">新媒体运营</p></div><ul><li>运营知识产权及法律类专业账号</li><li>视频播放量较前期提升约500%</li><li>独立制作企业校招宣传片</li></ul></article>
-            <article class="experience"><time>2017—2021</time><div><h3>重庆邮电大学</h3><p class="role">广播电视编导｜本科</p></div><ul><li>校级三等奖学金</li><li>重庆市大学生广告创意大赛三等奖</li><li>参与课程视频、大型活动、纪录片及剧情片制作</li></ul></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section dark contact">
+      <section class="contact" id="contact">
         <div class="shell">
           <p class="eyebrow">Let’s work together</p>
-          <h2>让下一条内容<br />有策略，也有结果。</h2>
+          <h2>让内容有策略，<br />也有真实结果。</h2>
           <div class="contact-grid">
             <div class="contact-meta">
-              <span>目标岗位：品牌内容运营／品牌内容策划／短视频内容运营</span>
+              <span>目标方向：品牌内容／文旅新媒体／短视频内容运营</span>
               <span>期望城市：深圳</span>
               <a href="tel:13364023426">133 6402 3426</a>
               <a href="mailto:1293903409@qq.com">1293903409@qq.com</a>
@@ -1401,53 +1264,64 @@
 
     <footer>
       <div class="shell footer-inner">
-        <span>© 2026 李晓聪 · 内容作品集</span>
-        <span>内容策划 · 视频制作 · 账号增长</span>
+        <span>© 2026 李晓聪 · 内容运营作品集</span>
+        <span>账号孵化 · 文案策划 · 视频制作</span>
       </div>
     </footer>
 
-    <dialog id="video-dialog" aria-labelledby="dialog-title">
-      <div class="modal-visual">
-        <button class="modal-close" type="button" aria-label="关闭">×</button>
-        <div class="modal-placeholder">
-          <strong>视频素材替换位</strong>
-          <p>目前先展示传播数据与个人职责；获得可公开的视频文件或链接后，可直接升级为在线播放。</p>
-        </div>
-      </div>
-      <div class="modal-info">
-        <div>
-          <span class="label" id="dialog-type"></span>
-          <h3 id="dialog-title"></h3>
-          <p id="dialog-account"></p>
-        </div>
-        <div>
-          <span class="label">视频数据</span>
-          <p id="dialog-plays"></p>
-          <span class="label">我的职责</span>
-          <p id="dialog-role"></p>
-        </div>
-      </div>
-    </dialog>
-
     <script>
-      const dialog = document.querySelector("#video-dialog");
-      const closeButton = dialog.querySelector(".modal-close");
+      const mainTabs = [...document.querySelectorAll(".main-tab")];
+      const panels = [...document.querySelectorAll("[data-panel-content]")];
+      const contentArea = document.querySelector("#portfolio-content");
 
-      document.querySelectorAll(".video").forEach((card) => {
-        card.addEventListener("click", () => {
-          document.querySelector("#dialog-type").textContent = card.dataset.type;
-          document.querySelector("#dialog-title").textContent = card.dataset.title;
-          document.querySelector("#dialog-account").textContent = card.dataset.account;
-          document.querySelector("#dialog-plays").textContent = card.dataset.plays;
-          document.querySelector("#dialog-role").textContent = card.dataset.role;
-          dialog.showModal();
+      function showPanel(name, shouldScroll = true) {
+        mainTabs.forEach((tab) => {
+          tab.setAttribute(
+            "aria-selected",
+            String(tab.dataset.panel === name),
+          );
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.panelContent !== name;
+        });
+        history.replaceState(null, "", `#${name}`);
+        if (shouldScroll) {
+          contentArea.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      mainTabs.forEach((tab) => {
+        tab.addEventListener("click", () => showPanel(tab.dataset.panel));
+      });
+
+      const projectFilters = [
+        ...document.querySelectorAll(".project-filter"),
+      ];
+      const projectGroups = [
+        ...document.querySelectorAll("[data-project-content]"),
+      ];
+
+      projectFilters.forEach((filter) => {
+        filter.addEventListener("click", () => {
+          const name = filter.dataset.projectGroup;
+          projectFilters.forEach((item) => {
+            item.setAttribute(
+              "aria-selected",
+              String(item.dataset.projectGroup === name),
+            );
+          });
+          projectGroups.forEach((group) => {
+            group.hidden = group.dataset.projectContent !== name;
+          });
         });
       });
 
-      closeButton.addEventListener("click", () => dialog.close());
-      dialog.addEventListener("click", (event) => {
-        if (event.target === dialog) dialog.close();
-      });
+      const initialPanel = ["strengths", "experience", "projects"].includes(
+        location.hash.slice(1),
+      )
+        ? location.hash.slice(1)
+        : "strengths";
+      showPanel(initialPanel, false);
     </script>
   </body>
 </html>
